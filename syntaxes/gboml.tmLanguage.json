@@ -3,17 +3,62 @@
 	"name": "gboml",
 	"patterns": [
 		{
+			"include": "#comments"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
+			"include": "#identifiers"
+		},
+		{
+			"include": "#methods"
+		},
+		{
 			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#variables"
 		}
 	],
 	"repository": {
+		"comments": {
+			"patterns": [{
+				"begin": "\/\/",
+				"beginCaptures": {
+					"0": {
+						"name": "punctuation.definition.comment.gboml"
+					}
+				},
+				"end": "\\n",
+				"name": "comment.line.double-slash.gboml"
+			}]
+		},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.gboml",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "(\\B#([A-Z]{0,})|\\b(for|in|import|from|as)\\b)"
+			}]
+		},
+		"identifiers": {
+			"patterns": [
+				{
+					"name": "entity.name.class",
+					"match": "(?<=(#\\w+)) \\w+"
+				},
+				{
+						"name": "entity.name.class",
+						"match": "(\\b[^\\d\\s]\\w+)(?=\\.)"	
+				}
+			]
+		},
+		"methods": {
+			"patterns": [{
+				"name": "entity.name.function.myLanguage",
+				"match": "\\b\\w+\\s*(?=\\()"
 			}]
 		},
 		"strings": {
@@ -26,6 +71,14 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"variables": {
+			"name": "variable.other.gboml",
+			"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+		},
+		"numbers": {
+			"name": "constant.numeric.gboml",
+			"match": "\\b\\d+(\\.\\d+)?([eE][+-]?\\d+)?\\b"
 		}
 	},
 	"scopeName": "source.gboml"
