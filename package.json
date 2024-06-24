@@ -1,0 +1,25 @@
+{
+  "name": "gboml",
+  "displayName": "GBOML Syntax Highlight",
+  "description": "Synthax highlight for the GBOML language.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "gboml",
+      "aliases": ["gboml", "gboml"],
+      "extensions": [".gboml"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "gboml",
+      "scopeName": "source.gboml",
+      "path": "./syntaxes/gboml.tmLanguage.json"
+    }]
+  }
+}
