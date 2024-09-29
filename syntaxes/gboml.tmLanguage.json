@@ -40,7 +40,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.gboml",
-				"match": "(\\B#([A-Z]{0,})|\\b(for|in|import|from|as)\\b)"
+				"match": "(\\B#([A-Z]{0,})|\\b(for|in|import|from|as|where|and|or)\\b)"
 			}]
 		},
 		"identifiers": {
